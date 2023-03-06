@@ -22,7 +22,8 @@ model User {
 
 model Post {
   id String @id @default(uuid())
-  name String
+  name String?
+  text String
   createdAt DateTime? @default(now())
   updatedAt DateTime? @default(now())
   status Boolean @default(false)

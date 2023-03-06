@@ -11,10 +11,11 @@ class ListBookService{
                 authorId: authorId
             },
             select:{
+                id:true,
                 name: true,
+                description:true,
                 updatedAt: true,
-                authorId: true
-
+                authorId: true,
             }
         })
 
