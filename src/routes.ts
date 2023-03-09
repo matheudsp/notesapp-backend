@@ -7,20 +7,22 @@ import { AuthUserController } from './controllers/user/AuthUserController';
 import { CreateUserController } from './controllers/user/CreateUserController';
 import { DetailUserController } from './controllers/user/DetailUserController';
 
+import { isAuth } from './middlewares/isAuth';
+
 const router = Router()
 
 //-- user routes --
 router.post('/entrar', new AuthUserController().handle)
 router.post('/usuario', new CreateUserController().handle) 
-router.get('/conta', new DetailUserController().handle)
+router.get('/conta',isAuth, new DetailUserController().handle)
 
 //-- book routes --
-router.post('/book', new CreateBookController().handle)
-router.post('/books', new ListBookController().handle)
+router.post('/book',isAuth, new CreateBookController().handle)
+router.post('/books',isAuth, new ListBookController().handle)
 
 //-- post routes --
-router.post('/post', new CreatePostController().handle)
-router.post('/posts', new ListPostController().handle)
+router.post('/post',isAuth, new CreatePostController().handle)
+router.post('/posts', isAuth,new ListPostController().handle)
 
 export { router };
  
