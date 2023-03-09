@@ -1,6 +1,6 @@
 import { Router} from 'express';
 import { CreateBookController } from './controllers/book/CreateBookController';
-import { ListBookController } from './controllers/book/ListClassController';
+import { ListBookController } from './controllers/book/ListBookController';
 import { CreatePostController } from './controllers/post/CreatePostController';
 import { ListPostController } from './controllers/post/ListPostController';
 import { AuthUserController } from './controllers/user/AuthUserController';

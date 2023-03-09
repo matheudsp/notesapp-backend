@@ -8,7 +8,8 @@ class ListPostService{
     async execute({bookId}: PostRequest){
         const post = await prismaClient.post.findMany({
             where:{
-                bookId:bookId
+                bookId:bookId,
+                
             },
             select:{
                 id:true,
