@@ -2,24 +2,26 @@ import prismaClient from "../../prisma";
 
 interface BookRequest{
     authorId: string
+    
 }
 
 class ListBookService{
     async execute({authorId}: BookRequest){
-        const book = await prismaClient.book.findMany({
+        const findByAuthor = await prismaClient.book.findMany({
+            
             where:{
-                authorId: authorId
+                authorId:authorId
             },
             select:{
                 id:true,
-                name: true,
-                description:true,
-                updatedAt: true,
-                authorId: true,
+                name:true,
+                updatedAt:true,
+                authorId:true
             }
+
         })
 
-        return book;
+        return findByAuthor;
     }
 }
 

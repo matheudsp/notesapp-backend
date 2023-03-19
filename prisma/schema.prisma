@@ -19,6 +19,19 @@ model User {
 
   books Book[]
 }
+model Book{
+  id String @id @default(uuid())
+  name String
+  description String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @default(now())
+  author User @relation(fields: [authorId], references: [id])
+  authorId String 
+  
+
+  posts Post[]
+}
+
 
 model Post {
   id String @id @default(uuid())
@@ -32,18 +45,6 @@ model Post {
   
 }
 
-model Book{
-  id String @id @default(uuid())
-  name String
-  description String
-  createdAt DateTime? @default(now())
-  updatedAt DateTime? @default(now())
-  author User @relation(fields: [authorId], references: [id])
-  authorId String 
-  
-
-  posts Post[]
-}
 
 enum Role {
   USER

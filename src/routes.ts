@@ -26,3 +26,4 @@ router.post('/posts', isAuth,new ListPostController().handle)
 
 export { router };
  
+    

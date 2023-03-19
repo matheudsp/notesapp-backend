@@ -1,27 +1,28 @@
 import prismaClient from "../../prisma";
 
 interface PostRequest{
-    bookId: string;
+    bookId: string
+    
 }
 
 class ListPostService{
     async execute({bookId}: PostRequest){
-        const post = await prismaClient.post.findMany({
+        const findByBook = await prismaClient.post.findMany({
+            
             where:{
-                bookId:bookId,
-                
+                bookId:bookId
             },
             select:{
                 id:true,
-                name: true,
-                bookId: true
+                name:true,
+                text:true,
+                bookId:true,
             }
+
         })
 
-        return post;
+        return findByBook;
     }
-
-    
 }
 
-export { ListPostService }
+export { ListPostService}
