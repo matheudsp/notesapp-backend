@@ -13,7 +13,7 @@ class DetailPostService{
                 id:postId
             },
             select:{
-                name:true,
+                title:true,
                 text:true,
             }
 

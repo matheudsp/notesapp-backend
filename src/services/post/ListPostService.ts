@@ -14,7 +14,7 @@ class ListPostService{
             },
             select:{
                 id:true,
-                name:true,
+                title:true,
                 text:true,
                 bookId:true,
             }

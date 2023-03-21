@@ -3,12 +3,12 @@ import { CreatePostService } from "../../services/post/CreatePostService";
 
 class CreatePostController{
     async handle(req: Request, res: Response){
-        const {name, text, bookId} = req.body;
+        const {title, text, bookId} = req.body;
 
         const createPostService = new CreatePostService();
 
         const post = await createPostService.execute({
-            name,
+            title,
             text, 
             bookId
         });

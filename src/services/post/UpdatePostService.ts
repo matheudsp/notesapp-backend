@@ -2,18 +2,18 @@ import prismaClient from "../../prisma";
 
 interface PostRequest{
   postId: string;
-  name:string,
+  title:string,
   text:string
 }
 
 class UpdatePostService{
-  async execute( {postId,name, text}: PostRequest){
+  async execute( {postId,title, text}: PostRequest){
     const post = await prismaClient.post.update({
       where:{
         id: postId
       },
       data:{
-        name:name,
+        title:title,
         text:text,
         
       }

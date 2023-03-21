@@ -35,7 +35,7 @@ model Book{
 
 model Post {
   id String @id @default(uuid())
-  name String?
+  title String?
   text String
   createdAt DateTime? @default(now())
   updatedAt DateTime? @default(now())

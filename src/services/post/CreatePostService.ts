@@ -1,13 +1,13 @@
 import prismaClient from "../../prisma";
 
 interface PostRequest{
-    name: string;
+    title: string;
     text: string;
     bookId: string;
 }
 
 class CreatePostService{
-    async execute({name,text, bookId}:PostRequest){
+    async execute({title,text, bookId}:PostRequest){
 
         if(text === ""){
             throw new Error("Por favor, escreva algo")
@@ -15,7 +15,7 @@ class CreatePostService{
 
         const post = await prismaClient.post.create({
             data:{
-                name: name,
+                title: title,
                 text: text,
                 bookId:bookId
             }
