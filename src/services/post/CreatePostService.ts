@@ -9,9 +9,6 @@ interface PostRequest{
 class CreatePostService{
     async execute({title,text, bookId}:PostRequest){
 
-        if(text === ""){
-            throw new Error("Por favor, escreva algo")
-        }
 
         const post = await prismaClient.post.create({
             data:{

@@ -15,6 +15,7 @@ class ListBookService{
             select:{
                 id:true,
                 name:true,
+                description:true,
                 updatedAt:true,
                 authorId:true
             }
